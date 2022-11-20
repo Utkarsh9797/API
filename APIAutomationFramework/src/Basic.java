@@ -4,6 +4,7 @@ import static org.hamcrest.Matchers.*;
 
 import org.testng.Assert;
 
+import PackageforExtraClasses.ReusableMethods;
 import PackageforExtraClasses.payloads;
 
 import static io.restassured.RestAssured.*;
@@ -40,8 +41,8 @@ body("{\r\n"
 String getadd = given().queryParam("key","qaclick123").queryParam("place_id",placeid).when().get("/maps/api/place/get/json").then().assertThat().statusCode(200).extract()
 .response().asString();
 
-JsonPath js1 = new JsonPath (getadd);
-String actualaddress = js1.getString("address");
+JsonPath js2 = ReusableMethods.RawToJsons(getadd);
+String actualaddress = js2.getString("address");
 Assert.assertEquals(newaddress, actualaddress);
 
 

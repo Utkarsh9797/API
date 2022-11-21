@@ -6,7 +6,7 @@ import static io.restassured.RestAssured.*;
 public class ComplesJsonPractise {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// to get the data for particular book with particular copies
 		
 		JsonPath js = new JsonPath (payloads.complexresponse());
 		
